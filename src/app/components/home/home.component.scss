@@ -1,0 +1,103 @@
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  background: linear-gradient(to right, #0A2540, #123d6d); /* Dark Blue gradient */
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cta-buttons button {
+  background: #FF6B35; /* Orange button */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-buttons button:hover {
+  background: #e85a25; /* Darker orange hover */
+  transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0A2540; /* Dark Blue heading */
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.why-choose-us h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #0A2540; /* Dark Blue heading */
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.why-choose-us li {
+  font-size: 1.1rem;
+  margin: 12px 0;
+  padding-left: 30px;
+  position: relative;
+}
+
+.why-choose-us li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #FF6B35; /* Orange checkmark */
+  font-weight: bold;
+}

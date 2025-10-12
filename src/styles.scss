@@ -1,0 +1,315 @@
+@use "sass:color";
+/* =========================
+   Theme Variables
+   ========================= */
+// SCSS variables (compile-time)
+$color-primary: #0A2540;   // Dark Blue
+$color-accent:  #FF6B35;   // Orange
+$color-bg:      #FAFAFA;   // Light background
+$color-text:    #333333;   // Main text
+$color-muted:   #777777;   // Secondary text
+
+// CSS variables (runtime, optional)
+:root {
+  --color-primary: #{$color-primary};
+  --color-accent:  #{$color-accent};
+  --color-bg:      #{$color-bg};
+  --color-text:    #{$color-text};
+  --color-muted:   #{$color-muted};
+}
+
+/* =========================
+   Global Reset & Base
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1, h2, h3, h4, h5 {
+  color: $color-primary;
+  font-weight: 600;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: $color-primary;
+}
+
+/* =========================
+   Navbar
+   ========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: $color-primary;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-accent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: $color-accent;
+  border-bottom: 2px solid $color-accent;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: $color-primary;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  background: linear-gradient(to right, $color-primary, #123d6d);
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cta-buttons button {
+  background: $color-accent;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-buttons button:hover {
+  background: color.adjust($color-accent, $lightness: -10%);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Services Section
+   ========================= */
+.services-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.services-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: $color-primary;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: $color-accent;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  color: $color-primary;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.service-card i {
+  font-size: 2rem;
+  color: $color-accent;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   Contact Section
+   ========================= */
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: $color-primary;
+}
+
+.contact-section p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+  color: $color-accent;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: $color-accent;
+}
+
+.contact-link:hover i {
+  color: $color-primary;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+  background: $color-primary;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer p {
+  margin: 0;
+  color: #fff;
+}
+
+.footer a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}

@@ -1,0 +1,23 @@
+.footer {
+  background: #0A2540;       /* Dark Blue background */
+  color: #ddd;               /* Light text */
+  text-align: center;        /* Center the text */
+  padding: 20px;             /* Spacing */
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer p {
+  margin: 0;
+  color: #fff;               /* White text for clarity */
+}
+
+.footer a {
+  color: #FF6B35;            /* Orange links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;               /* White on hover for contrast */
+}

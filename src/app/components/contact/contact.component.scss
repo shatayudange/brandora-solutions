@@ -1,0 +1,47 @@
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0A2540; /* Dark Blue heading */
+}
+
+.contact-section p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #0A2540; /* Dark Blue text */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+  color: #FF6B35; /* Orange icons */
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #FF6B35; /* Orange hover for text */
+}
+
+.contact-link:hover i {
+  color: #0A2540; /* Dark Blue icon on hover */
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,4 +15,14 @@ import { ServicesComponent } from './components/services/services.component';
 })
 export class AppComponent {
   title = 'brandora-solutions';
+  @HostListener('window:scroll', [])
+onWindowScroll() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar?.classList.add('scrolled');
+  } else {
+    navbar?.classList.remove('scrolled');
+  }
+}
+
 }

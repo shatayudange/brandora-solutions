@@ -1,23 +1,26 @@
 .footer {
-  background: #0A2540;       /* Dark Blue background */
-  color: #ddd;               /* Light text */
-  text-align: center;        /* Center the text */
-  padding: 20px;             /* Spacing */
-  font-size: 1rem;
-  font-weight: 500;
+  background: #0A2540; /* Dark Blue */
+  text-align: center;
+  padding: 25px 20px;
+  position: relative;
 }
 
-.footer p {
+.footer-text {
   margin: 0;
-  color: #fff;               /* White text for clarity */
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #ddd;
+  letter-spacing: 0.5px;
 }
 
-.footer a {
-  color: #FF6B35;            /* Orange links */
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer a:hover {
-  color: #fff;               /* White on hover for contrast */
+/* Add a subtle gradient line above the footer */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #FF6B35, transparent);
+  border-radius: 2px;
 }

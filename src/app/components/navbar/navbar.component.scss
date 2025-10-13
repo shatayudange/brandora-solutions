@@ -8,38 +8,84 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #0A2540; /* Dark Blue background */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: linear-gradient(
+    to right,
+    rgba(10, 37, 64, 0.95),
+    rgba(10, 37, 64, 0.85)
+  );
+ /* semi-transparent dark blue */
+  backdrop-filter: blur(8px);       /* frosted glass blur */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle divider */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 37, 64, 0.7); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Logo */
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #FF6B35; /* Orange logo text */
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 /* Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
 .nav-links li a {
+  position: relative;
   text-decoration: none;
-  color: #ffffff; /* White links */
+  color: #ffffff;
   font-weight: 500;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #FF6B35;
+  transition: width 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: #FF6B35; /* Orange hover */
+  color: #FF6B35;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-links li a.active {
+  color: #FF6B35;
+  font-weight: 600;
 }
 
 /* Mobile menu toggle (hamburger) */
@@ -52,9 +98,10 @@ html {
 .menu-toggle span {
   height: 3px;
   width: 25px;
-  background: #ffffff; /* White bars */
+  background: #ffffff;
   margin: 4px 0;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 /* Responsive */
@@ -63,16 +110,18 @@ html {
     position: absolute;
     top: 70px;
     right: 0;
-    background: #0A2540; /* Dark Blue dropdown */
+    background: #0A2540;
     flex-direction: column;
-    width: 200px;
+    width: 220px;
     padding: 20px;
-    display: none; /* hidden by default */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border-radius: 0 0 8px 8px;
   }
 
   .nav-links.active {
-    display: flex; /* show when toggled */
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
   }
 
   .menu-toggle {
@@ -80,9 +129,14 @@ html {
   }
 }
 
-/* Active link */
-.nav-links li a.active {
-  color: #FF6B35; /* Orange active link */
-  font-weight: 600;
-  border-bottom: 2px solid #FF6B35;
+/* Slide-down animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -140,3 +140,14 @@ html {
     transform: translateY(0);
   }
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;   /* adjust size as needed */
+  width: auto;
+  display: block;
+}

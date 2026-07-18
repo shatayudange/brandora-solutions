@@ -1,1 +1,76 @@
-<p>portfolio works!</p>
+<div class="portfolio-section">
+  <div class="portfolio-section__inner">
+    <span class="portfolio-section__eyebrow">Featured client results</span>
+    <h2 class="portfolio-section__heading">Real growth, tracked and reported.</h2>
+    <p class="portfolio-section__subhead">
+      A snapshot of what focused, consistent execution can do over a few months —
+      pulled directly from client analytics.
+    </p>
+
+    <div class="filter-bar" role="tablist" aria-label="Filter results by channel">
+      <button
+        *ngFor="let f of filters"
+        class="filter-bar__btn"
+        [class.active]="activeFilter === f"
+        (click)="setFilter(f)"
+        role="tab"
+        [attr.aria-selected]="activeFilter === f"
+      >
+        {{ f }}
+      </button>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card" *ngFor="let stat of filteredStats">
+        <div class="stat-card__tag">{{ stat.channel }}</div>
+        <div class="stat-card__value">{{ stat.prefix }}{{ stat.animatedValue | number }}{{ stat.suffix }}</div>
+        <p class="stat-card__label">{{ stat.label }}</p>
+      </div>
+    </div>
+
+    <div class="growth-chart">
+      <div class="growth-chart__header">
+        <h3>90-day reach trajectory</h3>
+        <span class="growth-chart__badge">Featured client</span>
+      </div>
+      <svg class="growth-chart__svg" viewBox="0 0 600 200" preserveAspectRatio="none" role="img" aria-label="Line chart showing account reach growing sharply over a 90 day period">
+        <line x1="0" y1="50" x2="600" y2="50" class="growth-chart__gridline" />
+        <line x1="0" y1="100" x2="600" y2="100" class="growth-chart__gridline" />
+        <line x1="0" y1="150" x2="600" y2="150" class="growth-chart__gridline" />
+        <path
+          class="growth-chart__area"
+          d="M0,185 L60,182 L120,180 L180,178 L240,170 L280,90 L320,40 L360,60 L420,178 L480,180 L540,181 L600,180 L600,200 L0,200 Z"
+        />
+        <path
+          class="growth-chart__line"
+          d="M0,185 L60,182 L120,180 L180,178 L240,170 L280,90 L320,40 L360,60 L420,178 L480,180 L540,181 L600,180"
+          fill="none"
+        />
+      </svg>
+      <div class="growth-chart__footer">
+        <span>Month 1</span>
+        <span>Month 2</span>
+        <span>Month 3</span>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <span class="portfolio-section__eyebrow">What clients say</span>
+      <div class="testimonials__grid">
+        <blockquote class="testimonial-card">
+          <p>"Within a few months our reach grew from a few thousand views to well over 100K in a single month. The reporting made it easy to see exactly what was working."</p>
+          <footer>Founder, Retail & Lifestyle Brand</footer>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          <p>"They rebuilt our entire online presence — website, social, and ads — and we finally have a strategy that's actually tied to numbers instead of guesswork."</p>
+          <footer>Marketing Lead, Regional Service Business</footer>
+        </blockquote>
+        <blockquote class="testimonial-card">
+          <p>"The team is responsive, the monthly reports are genuinely useful, and our follower growth has been consistent instead of a one-time spike."</p>
+          <footer>Owner, E-commerce Brand</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+

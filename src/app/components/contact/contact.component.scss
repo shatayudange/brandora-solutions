@@ -1,47 +1,98 @@
+@use '../../styles/tokens' as *;
+
 .contact-section {
-  padding: 60px 20px;
-  text-align: center;
-  background: #f9f9f9;
-}
+  background: $bg-secondary;
+  @include section-padding;
 
-.contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #0A2540; /* Dark Blue heading */
-}
+  &__inner {
+    @include container;
+    text-align: center;
+  }
 
-.contact-section p {
-  margin-bottom: 30px;
-  color: #555;
+  &__eyebrow {
+    @include eyebrow;
+    display: inline-block;
+    margin-bottom: $space-xs;
+  }
+
+  &__heading {
+    font-size: $fs-h1;
+    margin-bottom: $space-sm;
+  }
+
+  &__subhead {
+    font-size: 1.05rem;
+    max-width: 52ch;
+    margin: 0 auto $space-lg;
+  }
 }
 
 .contact-options {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-sm;
+  max-width: 900px;
+  margin: 0 auto $space-lg;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-link {
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #0A2540; /* Dark Blue text */
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: color 0.3s ease;
+  gap: $space-sm;
+  background: $bg-elevated;
+  @include hairline-border;
+  border-radius: $radius-lg;
+  padding: $space-sm $space-md;
+  text-align: left;
+  transition: border-color $dur-fast $ease-out, background $dur-fast $ease-out;
+
+  &:hover {
+    border-color: $border-accent;
+    background: $bg-elevated-hi;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: $radius-md;
+    background: $accent-glow;
+    color: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: $fs-caption;
+    color: $text-tertiary;
+    margin-bottom: 2px;
+  }
+
+  &__value {
+    display: block;
+    font-size: $fs-small;
+    font-weight: 500;
+    color: $text-primary;
+    word-break: break-word;
+  }
 }
 
-.contact-link i {
-  font-size: 1.5rem;
-  color: #FF6B35; /* Orange icons */
-  transition: color 0.3s ease;
-}
+.contact-locations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  color: $text-secondary;
+  font-size: $fs-small;
 
-.contact-link:hover {
-  color: #FF6B35; /* Orange hover for text */
-}
-
-.contact-link:hover i {
-  color: #0A2540; /* Dark Blue icon on hover */
+  i {
+    color: $accent;
+  }
 }

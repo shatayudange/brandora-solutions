@@ -1,26 +1,123 @@
-.footer {
-  background: #0A2540; /* Dark Blue */
-  text-align: center;
-  padding: 25px 20px;
-  position: relative;
-}
+@use '../../styles/tokens' as *;
 
-.footer-text {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #ddd;
-  letter-spacing: 0.5px;
-}
-
-/* Add a subtle gradient line above the footer */
-.footer::before {
-  content: '';
+.sr-only {
   position: absolute;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #FF6B35, transparent);
-  border-radius: 2px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.footer {
+  background: $bg-secondary;
+  padding-top: $space-2xl;
+
+  &__inner {
+    @include container;
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 0.9fr 1.1fr;
+    gap: $space-lg;
+    padding-bottom: $space-xl;
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    font-family: $font-display;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: $text-primary;
+  }
+
+  &__brand-accent {
+    color: $accent;
+  }
+
+  &__tagline {
+    font-size: $fs-small;
+    margin: $space-xs 0 $space-sm;
+  }
+
+  &__locations {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    font-size: $fs-small;
+    color: $text-secondary;
+
+    i {
+      color: $accent;
+    }
+  }
+
+  &__col {
+    h4 {
+      font-size: $fs-small;
+      color: $text-primary;
+      margin-bottom: $space-sm;
+    }
+
+    ul li {
+      margin-bottom: $space-xs;
+    }
+
+    ul li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: $fs-small;
+      color: $text-secondary;
+      transition: color $dur-fast $ease-out;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    margin-top: $space-xs;
+    padding: 0.6rem 1.1rem;
+    border-radius: $radius-md;
+    background: $accent;
+    color: #05201C;
+    font-size: $fs-small;
+    font-weight: 600;
+    transition: background $dur-fast $ease-out, transform $dur-fast $ease-out;
+
+    &:hover {
+      background: lighten(#2DD4BF, 6%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &__bottom {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $space-xs;
+    padding: $space-sm 0 $space-lg;
+  }
+
+  &-text {
+    font-size: $fs-caption;
+    color: $text-tertiary;
+  }
+
+  &__copyright {
+    font-size: $fs-caption;
+    color: $text-tertiary;
+  }
 }

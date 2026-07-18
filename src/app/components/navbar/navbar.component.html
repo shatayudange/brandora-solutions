@@ -1,12 +1,31 @@
-<nav class="navbar">
-  <a href="#home">
-      <img src="assets/brandora-logo.png" alt="Brandora Solutions Logo" class="logo-img">
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar__inner">
+    <a href="#home" class="navbar__brand" aria-label="Brandora Solutions home">
+      <span class="navbar__brand-text">Brandora<span class="navbar__brand-accent">Solutions</span></span>
     </a>
-  <div class="logo">Brandora Solutions</div>
-  <ul class="nav-links">
-    <li><a href="#home" [class.active]="activeSection === 'home'">Home</a></li>
-    <li><a href="#services" [class.active]="activeSection === 'services'">Services</a></li>
-   <!-- <li><a href="#portfolio" [class.active]="activeSection === 'portfolio'">Portfolio</a></li> -->
-    <li><a href="#contact" [class.active]="activeSection === 'contact'">Contact</a></li>
-  </ul>
+
+    <ul class="navbar__links" [class.navbar__links--open]="isMenuOpen">
+      <li><a href="#home" [class.active]="activeSection === 'home'" (click)="closeMenu()">Home</a></li>
+      <li><a href="#services" [class.active]="activeSection === 'services'" (click)="closeMenu()">Services</a></li>
+      <li><a href="#portfolio" [class.active]="activeSection === 'portfolio'" (click)="closeMenu()">Results</a></li>
+      <li><a href="#contact" [class.active]="activeSection === 'contact'" (click)="closeMenu()">Contact</a></li>
+      <li class="navbar__cta-mobile">
+        <a href="#contact" class="navbar__cta" (click)="closeMenu()">Book a strategy call</a>
+      </li>
+    </ul>
+
+    <a href="#contact" class="navbar__cta navbar__cta--desktop">Book a strategy call</a>
+
+    <button
+      class="navbar__toggle"
+      [class.navbar__toggle--open]="isMenuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="isMenuOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>

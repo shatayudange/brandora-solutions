@@ -16,11 +16,11 @@ export class ServicesComponent implements AfterViewInit {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('reveal'), index * 150);
+            setTimeout(() => entry.target.classList.add('reveal'), index * 80);
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.15 });
 
       cards.forEach(card => observer.observe(card));
     }

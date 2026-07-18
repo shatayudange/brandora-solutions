@@ -9,20 +9,20 @@ import { ServicesComponent } from './components/services/services.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ContactComponent,FooterComponent,HomeComponent,NavbarComponent,ServicesComponent],
+  imports: [ContactComponent, FooterComponent, HomeComponent, NavbarComponent, PortfolioComponent, ServicesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'brandora-solutions';
-  @HostListener('window:scroll', [])
-onWindowScroll() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar?.classList.add('scrolled');
-  } else {
-    navbar?.classList.remove('scrolled');
-  }
-}
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  }
 }
